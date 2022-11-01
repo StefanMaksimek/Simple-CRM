@@ -1,0 +1,55 @@
+@import "../assets/variables.scss";
+
+.content {
+  padding: $spacing-L;
+}
+
+mat-drawer-container {
+  height: 100vh;
+}
+
+mat-toolbar,
+.logo {
+  height: $spacing-XL;
+}
+
+mat-toolbar {
+  span {
+    margin-left: $spacing-S;
+  }
+}
+
+.sidenav {
+  width: 300px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid $white-tr;
+}
+
+.links {
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      padding: $spacing-S $spacing-L;
+      cursor: pointer;
+      transition: $transition-ms;
+      &:hover {
+        background-color: $white-tr;
+      }
+      mat-icon {
+        margin-right: $spacing-S;
+      }
+      a {
+        text-decoration: none;
+        color: $white;
+      }
+    }
+  }
+}

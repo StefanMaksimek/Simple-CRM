@@ -1,0 +1,37 @@
+@import "../../assets/variables.scss";
+
+mat-form-field {
+  margin-right: $spacing-S;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:only-child {
+    width: 100%;
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px #424242 inset !important;
+    -webkit-text-fill-color: $white !important;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .mat-form-field-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+hr {
+  width: 80%;
+  border: 0;
+
+  height: 1px;
+  background-color: $secondary;
+}
