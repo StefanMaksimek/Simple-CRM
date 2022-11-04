@@ -1,6 +1,7 @@
 <mat-card>
   <table>
     <tr>
+      <th>#</th>
       <th>Name</th>
       <th>Birthdate</th>
       <th>Email</th>
@@ -8,29 +9,11 @@
       <th>Adress</th>
     </tr>
 
-    <tr>
-      <td>KantholzToni</td>
-      <td>01.01.1998</td>
-      <td>kante@torte.de</td>
-      <td>0815 2015 21 21 21</td>
-      <td>
-        Tortenstraße 48 <br />
-        12345 Kanthausen
-      </td>
-    </tr>
-
-    <tr>
-      <td>KantholzToni</td>
-      <td>01.01.1998</td>
-      <td>kante@torte.de</td>
-      <td>0815 2015 21 21 21</td>
-      <td>
-        Tortenstraße 48 <br />
-        12345 Kanthausen
-      </td>
-    </tr>
-
-    <tr *ngFor="let user of users" [routerLink]="['/user/' + user.userID]">
+    <tr
+      *ngFor="let user of users; let i = index"
+      [routerLink]="['/user/' + user.userID]"
+    >
+      <td>{{ i }}</td>
       <td>{{ user.firstName }} {{ user.lastName }}</td>
       <td>{{ user.birthdate }}</td>
       <td>{{ user.email }}</td>

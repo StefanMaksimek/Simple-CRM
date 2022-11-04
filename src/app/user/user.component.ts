@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
+    this.openDialog();
   }
 
   constructor(public dialog: MatDialog, private firestore: Firestore) {}

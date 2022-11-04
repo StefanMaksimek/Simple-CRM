@@ -1,5 +1,16 @@
 @import "../../assets/variables.scss";
 
+.example-radio-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
 mat-form-field {
   margin-right: $spacing-S;
   &:last-child {

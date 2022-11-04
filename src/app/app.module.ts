@@ -27,6 +27,8 @@ import { MatCardModule } from '@angular/material/card';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditContactComponent } from './dialog-edit-contact/dialog-edit-contact.component';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { DialogEditContactComponent } from './dialog-edit-contact/dialog-edit-co
     provideFirestore(() => getFirestore()),
     MatProgressBarModule,
     MatCardModule,
+    MatStepperModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

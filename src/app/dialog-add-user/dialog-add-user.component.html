@@ -1,125 +1,201 @@
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<div class="adding-by-steps">
+  <h1 mat-dialog-title>Add user</h1>
 
-<h1 mat-dialog-title>Add user</h1>
-<div mat-dialog-content>
-  <form>
-    <div>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>First name</mat-label>
-        <input
-          [formControl]="firstName"
-          name="firstName"
-          matInput
-          type="text"
-          placeholder="Fred"
-          required
-        />
-        <mat-error *ngIf="firstName.invalid">{{
-          getErrorMessage(firstName, "name")
-        }}</mat-error>
-      </mat-form-field>
+  <div mat-dialog-content>
+    <mat-stepper orientation="vertical" linear #stepper>
+      <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill personal details</ng-template>
 
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Last name</mat-label>
-        <input
-          [formControl]="lastName"
-          name="lastName"
-          type="text"
-          matInput
-          placeholder="Firestone"
-          required
-        />
-        <mat-error *ngIf="lastName.invalid">{{
-          getErrorMessage(lastName, "name")
-        }}</mat-error>
-      </mat-form-field>
-    </div>
+          <mat-radio-group
+            [(ngModel)]="user.gender"
+            [ngModelOptions]="{ standalone: true }"
+            class="example-radio-group"
+          >
+            <mat-radio-button
+              class="example-radio-button"
+              *ngFor="let gender of genders"
+              [value]="gender"
+            >
+              {{ gender }}
+            </mat-radio-button>
+          </mat-radio-group>
 
-    <div>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Birthdate</mat-label>
-        <input
-          [(ngModel)]="birthdate"
-          name="birthdate"
-          matInput
-          [matDatepicker]="picker1"
-        />
-        <mat-datepicker-toggle
-          matSuffix
-          [for]="picker1"
-        ></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
-      </mat-form-field>
-    </div>
+          <div>
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>First name</mat-label>
+              <input
+                formControlName="firstName2"
+                matInput
+                type="text"
+                placeholder="Fred"
+                required
+              />
+              <mat-error *ngIf="firstFormGroup.controls.firstName2.invalid">{{
+                getErrorMessage(firstFormGroup.controls.firstName2, "name")
+              }}</mat-error>
+            </mat-form-field>
 
-    <div>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Enter your email</mat-label>
-        <input
-          [formControl]="email"
-          name="email"
-          type="email"
-          matInput
-          placeholder="pat@example.com"
-          required
-        />
-        <mat-error *ngIf="email.invalid">{{
-          getErrorMessage(email, "email")
-        }}</mat-error>
-      </mat-form-field>
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>Last name</mat-label>
+              <input
+                formControlName="lastName2"
+                type="text"
+                matInput
+                placeholder="Firestone"
+                required
+              />
+              <mat-error *ngIf="firstFormGroup.controls.lastName2.invalid">{{
+                getErrorMessage(firstFormGroup.controls.lastName2, "name")
+              }}</mat-error>
+            </mat-form-field>
+          </div>
 
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Phone</mat-label>
-        <input
-          [(ngModel)]="user.phone"
-          name="phone"
-          type="number"
-          class="number-input"
-          matInput
-          placeholder="0815 21212121"
-        />
-      </mat-form-field>
-    </div>
+          <div>
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>Birthdate2</mat-label>
+              <input
+                formControlName="birthdate2"
+                matInput
+                [matDatepicker]="picker2"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker2"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
 
-    <div class="address">
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Street with house no.</mat-label>
-        <input
-          [(ngModel)]="user.street"
-          name="street"
-          type="text"
-          matInput
-          placeholder="Stonestreet 7"
-        />
-      </mat-form-field>
-    </div>
+          <div>
+            <button
+              matStepperNext
+              mat-raised-button
+              color="accent"
+              [disabled]="firstFormGroup.invalid"
+            >
+              Next
+            </button>
+          </div>
+        </form>
+      </mat-step>
 
-    <div>
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>Zip code</mat-label>
-        <input
-          [(ngModel)]="user.zipCode"
-          name="zipCode"
-          type="number"
-          matInput
-          placeholder="081521"
-        />
-      </mat-form-field>
+      <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out address</ng-template>
+          <div class="address">
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>Street with house no.</mat-label>
+              <input
+                formControlName="street"
+                type="text"
+                matInput
+                placeholder="Stonestreet 7"
+              />
+              <mat-error *ngIf="secondFormGroup.controls.street.invalid">{{
+                getErrorMessage(secondFormGroup.controls.street, "street")
+              }}</mat-error>
+            </mat-form-field>
+          </div>
 
-      <mat-form-field appearance="outline" color="accent">
-        <mat-label>City</mat-label>
-        <input
-          [(ngModel)]="user.city"
-          name="city"
-          type="text"
-          matInput
-          placeholder="Firevillage"
-        />
-      </mat-form-field>
-    </div>
-  </form>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="closeDialog()">Cancel</button>
-  <button mat-flat-button (click)="saveUser()" color="primary">Save</button>
+          <div>
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>Zip code</mat-label>
+              <input
+                formControlName="zipCode"
+                type="number"
+                matInput
+                placeholder="081521"
+              />
+              <mat-error *ngIf="secondFormGroup.controls.zipCode.invalid">{{
+                getErrorMessage(secondFormGroup.controls.zipCode, "zipCode")
+              }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>City</mat-label>
+              <input
+                formControlName="city"
+                type="text"
+                matInput
+                placeholder="Firevillage"
+              />
+              <mat-error *ngIf="secondFormGroup.controls.city.invalid">{{
+                getErrorMessage(secondFormGroup.controls.city, "city")
+              }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button
+              mat-raised-button
+              color="accent"
+              [disabled]="secondFormGroup.invalid"
+              matStepperNext
+            >
+              Next
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="thirdFormGroup" [editable]="isEditable">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Fill out contact</ng-template>
+
+          <div>
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>Enter email</mat-label>
+              <input
+                formControlName="email"
+                matInput
+                placeholder="pat@example.com"
+              />
+              <mat-error *ngIf="thirdFormGroup.controls.email.invalid">{{
+                getErrorMessage(thirdFormGroup.controls.email, "email")
+              }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" color="accent">
+              <mat-label>Phone</mat-label>
+              <input
+                formControlName="phone"
+                type="phone-number"
+                class="number-input"
+                matInput
+                placeholder="0815 21212121"
+              />
+            </mat-form-field>
+          </div>
+
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button
+              mat-raised-button
+              color="accent"
+              [disabled]="thirdFormGroup.invalid"
+              matStepperNext
+            >
+              Next
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div mat-dialog-actions>
+          <button mat-button (click)="closeDialog()">Cancel</button>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+
+          <button mat-flat-button (click)="saveUser()" color="accent">
+            Save
+          </button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+  </div>
 </div>
