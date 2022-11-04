@@ -1,3 +1,48 @@
+<mat-card>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Birthdate</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Adress</th>
+    </tr>
+
+    <tr>
+      <td>KantholzToni</td>
+      <td>01.01.1998</td>
+      <td>kante@torte.de</td>
+      <td>0815 2015 21 21 21</td>
+      <td>
+        Tortenstraße 48 <br />
+        12345 Kanthausen
+      </td>
+    </tr>
+
+    <tr>
+      <td>KantholzToni</td>
+      <td>01.01.1998</td>
+      <td>kante@torte.de</td>
+      <td>0815 2015 21 21 21</td>
+      <td>
+        Tortenstraße 48 <br />
+        12345 Kanthausen
+      </td>
+    </tr>
+
+    <tr *ngFor="let user of users" [routerLink]="['/user/' + user.userID]">
+      <td>{{ user.firstName }} {{ user.lastName }}</td>
+      <td>{{ user.birthdate }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>
+        {{ user.street }} <br />
+        {{ user.zipCode }} {{ user.city }}
+      </td>
+    </tr>
+  </table>
+</mat-card>
+
 <button
   mat-fab
   color="primary"

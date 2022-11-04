@@ -18,12 +18,7 @@ mat-form-field {
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  .mat-form-field-wrapper {
-    padding: 0;
+    display: none;
     margin: 0;
   }
 }
@@ -34,4 +29,9 @@ hr {
 
   height: 1px;
   background-color: $secondary;
+}
+
+mat-progress-bar {
+  height: 0.5rem;
+  border-radius: 1rem;
 }

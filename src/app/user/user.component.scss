@@ -1,5 +1,47 @@
 @import "../../assets/variables.scss";
 
+mat-card {
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  th,
+  td {
+    &:first-child {
+      padding-left: $spacing-S;
+    }
+    &:last-child {
+      padding-right: $spacing-S;
+    }
+  }
+  th {
+    color: $white-tr;
+    font-weight: 400;
+    font-style: italic;
+    text-align: start;
+  }
+  td {
+    text-align: start;
+  }
+  tr {
+    height: $spacing-XL;
+    border-bottom: 1px solid $secondary-tr;
+    &:hover {
+      cursor: pointer;
+      background-color: $white-tr;
+    }
+    &:first-child {
+      height: $spacing-L;
+      &:hover {
+        background-color: unset;
+        cursor: unset;
+      }
+    }
+  }
+}
+
 .add-btn {
   position: absolute;
   right: $spacing-M;

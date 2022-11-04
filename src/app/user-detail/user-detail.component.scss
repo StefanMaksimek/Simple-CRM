@@ -1,0 +1,51 @@
+@import "../../assets/variables.scss";
+.user-header {
+  display: flex;
+  align-items: flex-end;
+  height: 30vh;
+  min-height: 300px;
+  background-color: $secondary-tr;
+  font-family: "Josefin Sans";
+  .user-header-text,
+  img {
+    height: 15vh;
+    min-height: 150px;
+  }
+  .user-header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    h1,
+    h2 {
+      margin: 0 0 $spacing-S 0;
+    }
+  }
+  img {
+    border-radius: 50%;
+    margin-right: $spacing-M;
+  }
+}
+
+.card-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: $spacing-M;
+  width: fit-content;
+  &:first-child {
+    margin-left: 0;
+  }
+  mat-card-title {
+    border-bottom: 1px solid $white-tr;
+    margin-bottom: $spacing-S;
+  }
+
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

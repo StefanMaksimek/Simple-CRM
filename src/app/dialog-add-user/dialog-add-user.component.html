@@ -1,21 +1,37 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
 <h1 mat-dialog-title>Add user</h1>
 <div mat-dialog-content>
-  <form action="">
+  <form>
     <div>
       <mat-form-field appearance="outline" color="accent">
         <mat-label>First name</mat-label>
         <input
-          [(ngModel)]="user.firstName"
+          [formControl]="firstName"
+          name="firstName"
           matInput
           type="text"
           placeholder="Fred"
-          name="user.name"
+          required
         />
+        <mat-error *ngIf="firstName.invalid">{{
+          getErrorMessage(firstName, "name")
+        }}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline" color="accent">
         <mat-label>Last name</mat-label>
-        <input [(ngModel)]="user.lastName" matInput placeholder="Firestone" />
+        <input
+          [formControl]="lastName"
+          name="lastName"
+          type="text"
+          matInput
+          placeholder="Firestone"
+          required
+        />
+        <mat-error *ngIf="lastName.invalid">{{
+          getErrorMessage(lastName, "name")
+        }}</mat-error>
       </mat-form-field>
     </div>
 
@@ -23,7 +39,8 @@
       <mat-form-field appearance="outline" color="accent">
         <mat-label>Birthdate</mat-label>
         <input
-          [(ngModel)]="user.birthdate"
+          [(ngModel)]="birthdate"
+          name="birthdate"
           matInput
           [matDatepicker]="picker1"
         />
@@ -35,56 +52,74 @@
       </mat-form-field>
     </div>
 
-    <hr />
-
     <div>
       <mat-form-field appearance="outline" color="accent">
         <mat-label>Enter your email</mat-label>
         <input
-          [(ngModel)]="user.email"
+          [formControl]="email"
+          name="email"
+          type="email"
           matInput
           placeholder="pat@example.com"
-          [formControl]="email"
           required
         />
-        <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+        <mat-error *ngIf="email.invalid">{{
+          getErrorMessage(email, "email")
+        }}</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline" color="accent">
         <mat-label>Phone</mat-label>
         <input
           [(ngModel)]="user.phone"
+          name="phone"
+          type="number"
           class="number-input"
           matInput
-          type="number"
           placeholder="0815 21212121"
         />
       </mat-form-field>
     </div>
 
-    <hr />
-
     <div class="address">
       <mat-form-field appearance="outline" color="accent">
         <mat-label>Street with house no.</mat-label>
-        <input [(ngModel)]="user.street" matInput placeholder="Stonestreet 7" />
+        <input
+          [(ngModel)]="user.street"
+          name="street"
+          type="text"
+          matInput
+          placeholder="Stonestreet 7"
+        />
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field appearance="outline" color="accent">
         <mat-label>Zip code</mat-label>
-        <input [(ngModel)]="user.zipCode" matInput placeholder="081521" />
+        <input
+          [(ngModel)]="user.zipCode"
+          name="zipCode"
+          type="number"
+          matInput
+          placeholder="081521"
+        />
       </mat-form-field>
 
       <mat-form-field appearance="outline" color="accent">
         <mat-label>City</mat-label>
-        <input [(ngModel)]="user.city" matInput placeholder="Firevillage" />
+        <input
+          [(ngModel)]="user.city"
+          name="city"
+          type="text"
+          matInput
+          placeholder="Firevillage"
+        />
       </mat-form-field>
     </div>
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="closeDialog()">Cancel</button>
   <button mat-flat-button (click)="saveUser()" color="primary">Save</button>
 </div>

@@ -19,6 +19,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
+import { DialogEditContactComponent } from './dialog-edit-contact/dialog-edit-contact.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +34,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     UserComponent,
     DashboardComponent,
     DialogAddUserComponent,
+    UserDetailComponent,
+    DialogEditAddressComponent,
+    DialogEditContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +55,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    MatProgressBarModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

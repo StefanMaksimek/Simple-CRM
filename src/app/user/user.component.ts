@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { collectionData, docData, Firestore } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
+import { collection, doc } from 'firebase/firestore';
+import { Observable } from 'rxjs';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 
 @Component({
@@ -8,20 +11,23 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-  animal!: string;
-  name!: string;
+  users: any;
 
   ngOnInit(): void {
-    this.openDialog();
+    this.getUsers();
   }
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private firestore: Firestore) {}
+
+  getUsers() {
+    collectionData(collection(this.firestore, 'users'), {
+      idField: 'id',
+    }).subscribe((users) => {
+      this.users = users;
+    });
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddUserComponent, {});
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
   }
 }

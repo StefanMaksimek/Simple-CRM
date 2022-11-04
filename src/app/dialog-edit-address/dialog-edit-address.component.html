@@ -1,0 +1,47 @@
+<mat-card-title>Edit address</mat-card-title>
+<mat-card-content>
+  <form>
+    <div>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Street with house no.</mat-label>
+        <input
+          [(ngModel)]="data.user.street"
+          name="street"
+          type="text"
+          matInput
+          placeholder="Stonestreet 7"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>Zip code</mat-label>
+        <input
+          [(ngModel)]="data.user.zipCode"
+          name="zipCode"
+          type="number"
+          matInput
+          placeholder="081521"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>City</mat-label>
+        <input
+          [(ngModel)]="data.user.city"
+          name="city"
+          type="text"
+          matInput
+          placeholder="Firevillage"
+        />
+      </mat-form-field>
+    </div>
+  </form>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-flat-button [mat-dialog-close]="data" color="accent">
+      Save changes
+    </button>
+  </div>
+</mat-card-content>

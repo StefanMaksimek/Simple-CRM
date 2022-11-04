@@ -1,0 +1,34 @@
+<mat-card-title>Edit contact</mat-card-title>
+<mat-card-content>
+  <form>
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Phone number</mat-label>
+      <input
+        [(ngModel)]="data.user.phone"
+        name="street"
+        type="text"
+        matInput
+        placeholder="0815 21 21 21"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Enter your email</mat-label>
+      <input
+        [(ngModel)]="data.user.email"
+        name="email"
+        type="email"
+        matInput
+        placeholder="pat@example.com"
+        required
+      />
+    </mat-form-field>
+  </form>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-flat-button [mat-dialog-close]="data" color="accent">
+      Save changes
+    </button>
+  </div>
+</mat-card-content>

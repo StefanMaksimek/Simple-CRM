@@ -40,6 +40,8 @@ $simple-CRM-theme: mat.define-dark-theme(
 @include mat.all-component-themes($simple-CRM-theme);
 
 /* You can add global styles to this file, and also import other style files */
+@import "../src/assets/fonts/font.css";
+@import "../src/assets/variables.scss";
 
 html,
 body {
@@ -47,9 +49,28 @@ body {
 }
 body {
   margin: 0;
-  font-family: Josefin Sans, "Helvetica Neue", sans-serif;
+  font-family: "Josefin Sans", "Helvetica Neue", sans-serif;
 }
 
-.mat-form-field-wrapper {
-  padding: 0;
+mat-form-field {
+  margin-right: $spacing-S;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:only-child {
+    width: 100%;
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px #424242 inset !important;
+    -webkit-text-fill-color: $white !important;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    display: none;
+    margin: 0;
+  }
 }
