@@ -1,0 +1,11 @@
+<button mat-flat-button color="primary" (click)="generateData()">
+  Generate
+</button>
+
+<h1 *ngIf="generated">{{ firstName + " " + lastName }}</h1>
+<h1 *ngIf="generated">{{ email }}</h1>
+<h1 *ngIf="generated">{{ phone }}</h1>
+<h1 *ngIf="generated">{{ birthdate }}</h1>
+<h1 *ngIf="generated">{{ street }}!!!</h1>
+<h1 *ngIf="generated">{{ zipCode + " " + city }}!!!</h1>
+<h1 *ngIf="generated">{{ city }}!!!</h1>

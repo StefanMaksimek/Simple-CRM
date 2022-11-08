@@ -13,7 +13,7 @@
       *ngFor="let user of users; let i = index"
       [routerLink]="['/user/' + user.userID]"
     >
-      <td>{{ i }}</td>
+      <td>{{ i + 1 }}</td>
       <td>{{ user.firstName }} {{ user.lastName }}</td>
       <td>{{ user.birthdate }}</td>
       <td>{{ user.email }}</td>

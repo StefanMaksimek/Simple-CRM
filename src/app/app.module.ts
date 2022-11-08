@@ -29,6 +29,7 @@ import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-ad
 import { DialogEditContactComponent } from './dialog-edit-contact/dialog-edit-contact.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatRadioModule } from '@angular/material/radio';
+import { CreateRandomUserComponent } from './create-random-user/create-random-user.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MatRadioModule } from '@angular/material/radio';
     UserDetailComponent,
     DialogEditAddressComponent,
     DialogEditContactComponent,
+    CreateRandomUserComponent,
   ],
   imports: [
     BrowserModule,
