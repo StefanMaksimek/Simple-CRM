@@ -6,14 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  idList: string[] = [];
   constructor() {}
 
-  ngOnInit(): void {
-    for (let index = 0; index < 300; index++) {
-      this.idList.push(this.createID(20));
-    }
-  }
+  ngOnInit(): void {}
 
   createID(length: number) {
     let result = '';

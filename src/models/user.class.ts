@@ -9,10 +9,10 @@ export class User {
   street!: any;
   zipCode!: any;
   city!: any;
-
-  companyname: any;
-  branch: any;
-  homepage: any;
+  hobby: any;
+  employment: any;
+  favColor: any;
+  profilePic: any;
 
   constructor(obj?: any) {
     this.firstName = obj ? obj.firstName : '';
@@ -25,6 +25,10 @@ export class User {
     this.zipCode = obj ? obj.zipCode : '';
     this.city = obj ? obj.city : '';
     this.userID = obj ? obj.userID : '';
+    this.hobby = obj ? obj.hobby : '';
+    this.employment = obj ? obj.employment : '';
+    this.favColor = obj ? obj.favColor : '';
+    this.profilePic = obj ? obj.profilePic : '';
   }
 
   toJson() {
@@ -39,6 +43,10 @@ export class User {
       zipCode: this.zipCode,
       city: this.city,
       userID: this.userID,
+      hobby: this.hobby,
+      employment: this.employment,
+      favColor: this.favColor,
+      profilePic: this.profilePic,
     };
   }
 

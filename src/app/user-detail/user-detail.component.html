@@ -1,41 +1,86 @@
-<mat-card class="user-header">
-  <img src="assets/img/profile_pics/character4.png" alt="" />
-  <div class="user-header-text">
-    <h1>{{ user.firstName + " " + user.lastName }}</h1>
-    <h2>IT-Experte</h2>
+<mat-card>
+  <div class="header-img">
+    <img src="assets/img/profile_pics/character4.png" alt="" />
+    <div
+      class="color"
+      [ngStyle]="{
+        'background-color': 'blue'
+      }"
+    ></div>
+  </div>
+
+  <div class="user-header">
+    <img src="assets/img/profile_pics/character4.png" alt="" />
+    <div class="user-header-text">
+      <h1>{{ user.firstName + " " + user.lastName }}</h1>
+      <h2>IT-Experte</h2>
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="card">
+      <button mat-icon-button (click)="openEditadress()">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-card-title>Personal info</mat-card-title>
+
+      <div>
+        <mat-card-content>
+          <mat-icon>color_lens</mat-icon>
+          <div>
+            <p>{{ user.favColor }}</p>
+          </div>
+        </mat-card-content>
+
+        <mat-card-content>
+          <mat-icon>accessibility_new</mat-icon>
+          <div>
+            <p>{{ user.hobby }}</p>
+          </div>
+        </mat-card-content>
+
+        <mat-card-content>
+          <mat-icon>child_care</mat-icon>
+          <div>
+            <p>{{ user.birthdate }}</p>
+          </div>
+        </mat-card-content>
+      </div>
+    </div>
+
+    <div class="card">
+      <button mat-icon-button (click)="openEditadress()">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-card-title>Address</mat-card-title>
+
+      <mat-card-content>
+        <mat-icon fontIcon="home"></mat-icon>
+        <div>
+          <p>{{ user.street }}</p>
+          <p>{{ user.zipCode + " " + user.city }}</p>
+        </div>
+      </mat-card-content>
+    </div>
+
+    <div class="card">
+      <button mat-icon-button (click)="openEditContact()">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-card-title>Contact</mat-card-title>
+
+      <mat-card-content>
+        <table>
+          <tr>
+            <td><mat-icon>phone</mat-icon></td>
+            <td>{{ user.phone }}</td>
+          </tr>
+          <tr>
+            <td><mat-icon>mail</mat-icon></td>
+            <td>{{ user.email }}</td>
+          </tr>
+        </table>
+      </mat-card-content>
+    </div>
   </div>
 </mat-card>
-
-<div class="card-box">
-  <mat-card class="card">
-    <button mat-icon-button (click)="openEditadress()">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-card-title>Address</mat-card-title>
-
-    <mat-card-content>
-      <p>{{ user.street }}</p>
-      <p>{{ user.zipCode + " " + user.city }}</p>
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card class="card">
-    <button mat-icon-button (click)="openEditContact()">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-card-title>Contact</mat-card-title>
-
-    <mat-card-content>
-      <table>
-        <tr>
-          <td>Phone Number:</td>
-          <td>{{ user.phone }}</td>
-        </tr>
-        <tr>
-          <td>Email-Address:</td>
-          <td>{{ user.email }}</td>
-        </tr>
-      </table>
-    </mat-card-content>
-  </mat-card>
-</div>

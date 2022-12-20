@@ -1,11 +1,98 @@
-<button mat-flat-button color="primary" (click)="generateData()">
-  Generate
-</button>
+<div class="btn">
+  <button mat-flat-button color="accent" (click)="generateData()">
+    Generate
+  </button>
 
-<h1 *ngIf="generated">{{ firstName + " " + lastName }}</h1>
-<h1 *ngIf="generated">{{ email }}</h1>
-<h1 *ngIf="generated">{{ phone }}</h1>
-<h1 *ngIf="generated">{{ birthdate }}</h1>
-<h1 *ngIf="generated">{{ street }}!!!</h1>
-<h1 *ngIf="generated">{{ zipCode + " " + city }}!!!</h1>
-<h1 *ngIf="generated">{{ city }}!!!</h1>
+  <button mat-flat-button color="primary" (click)="createFirestoreUser()">
+    Push to Firebase
+  </button>
+</div>
+
+<h2>{{ "Gender: " + user.gender }}</h2>
+<h1 *ngIf="generated">{{ user.userID }}</h1>
+
+<mat-card *ngIf="generated">
+  <div class="header-img">
+    <img src="assets/img/profile_pics/character4.png" alt="" />
+    <div
+      *ngIf="generated"
+      class="color"
+      [ngStyle]="{
+        'background-color': bgColor
+      }"
+    ></div>
+  </div>
+
+  <div class="user-header">
+    <img
+      [ngStyle]="{
+        border: '3px solid',
+        'border-color': bgColor
+      }"
+      src="assets/img/profile_pics/{{ user.profilePic }}.png"
+      alt=""
+    />
+    <div class="user-header-text">
+      <h1>{{ user.firstName + " " + user.lastName }}</h1>
+      <h2>{{ user.employment }}</h2>
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="card">
+      <mat-card-title>Personal info</mat-card-title>
+
+      <div>
+        <mat-card-content>
+          <mat-icon>color_lens</mat-icon>
+          <div>
+            <p>{{ user.favColor }}</p>
+          </div>
+        </mat-card-content>
+
+        <mat-card-content>
+          <mat-icon>accessibility_new</mat-icon>
+          <div>
+            <p>{{ user.hobby }}</p>
+          </div>
+        </mat-card-content>
+
+        <mat-card-content>
+          <mat-icon>child_care</mat-icon>
+          <div>
+            <p>{{ user.birthdate }}</p>
+          </div>
+        </mat-card-content>
+      </div>
+    </div>
+
+    <div class="card">
+      <mat-card-title>Address</mat-card-title>
+
+      <mat-card-content>
+        <mat-icon fontIcon="home"></mat-icon>
+        <div>
+          <p>{{ user.street }}</p>
+          <p>{{ user.zipCode + " " + user.city }}</p>
+        </div>
+      </mat-card-content>
+    </div>
+
+    <div class="card">
+      <mat-card-title>Contact</mat-card-title>
+
+      <mat-card-content>
+        <table>
+          <tr>
+            <td><mat-icon>phone</mat-icon></td>
+            <td>{{ user.phone }}</td>
+          </tr>
+          <tr>
+            <td><mat-icon>mail</mat-icon></td>
+            <td>{{ user.email }}</td>
+          </tr>
+        </table>
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>
