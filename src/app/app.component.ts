@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   activeSide: boolean = true;
   mode: any = 'side';
+
+  @ViewChild('drawer') matDrawer!: MatDrawer;
 
   ngOnInit() {
     this.setMatDrawer(window.innerWidth);
@@ -24,6 +27,11 @@ export class AppComponent implements OnInit {
     } else {
       this.mode = 'side';
       this.activeSide = true;
+    }
+  }
+  closeDrawer() {
+    if (this.mode != 'side') {
+      this.matDrawer.close();
     }
   }
 }
