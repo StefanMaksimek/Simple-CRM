@@ -22,6 +22,14 @@
     align-items: center;
     padding: $spacing-XS $spacing-M;
     border-bottom: 1px solid $white;
+    div {
+      display: flex;
+      justify-content: center;
+      &.shop-location {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
     .image {
       width: $spacing-L;
       img {
@@ -70,6 +78,15 @@
         color: hsl(179, 89%, 70%);
         text-decoration: underline;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .transaction {
+    .price,
+    .status {
+      display: none !important;
     }
   }
 }
