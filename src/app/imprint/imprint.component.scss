@@ -1,0 +1,21 @@
+@import "../../assets/variables.scss";
+
+.imprint {
+  padding: $spacing-S;
+  h1,
+  h2 {
+    text-align: center;
+    color: $secondary;
+  }
+  h1 {
+    color: $primary;
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary;
+  }
+  p {
+    padding: $spacing-S 0;
+  }
+}

@@ -59,8 +59,6 @@ export class UserComponent implements OnInit, AfterViewInit {
   }
 
   setMatDrawer(windowInnerWidth: number) {
-    console.log(windowInnerWidth);
-
     if (windowInnerWidth < 1200) {
       this.displayedColumns = this.responsiveCollums;
       if (windowInnerWidth < 650) {

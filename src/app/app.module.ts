@@ -39,6 +39,8 @@ import { ChartModule } from 'angular-highcharts';
 import { SalesByCategoryComponent } from './dashboard/sales-by-category/sales-by-category.component';
 import { LastFewTransactionsComponent } from './dashboard/last-few-transactions/last-few-transactions.component';
 import { TopProductsComponent } from './dashboard/top-products/top-products.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { ImprintComponent } from './imprint/imprint.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { TopProductsComponent } from './dashboard/top-products/top-products.comp
     SalesByCategoryComponent,
     LastFewTransactionsComponent,
     TopProductsComponent,
+    PrivacyComponent,
+    ImprintComponent,
   ],
   imports: [
     BrowserModule,

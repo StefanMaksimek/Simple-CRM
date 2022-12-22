@@ -36,15 +36,7 @@ export class DialogAddUserComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogAddUserComponent>,
     private firestore: Firestore,
     private _formBuilder: FormBuilder
-  ) {
-    console.log('FirstFormGroup', this.firstFormGroup);
-    console.log(this.firstFormGroup.controls.birthdate2);
-    console.log(
-      new Date(
-        'Tue Nov 08 2022 00:00:00 GMT+0100 (Mitteleuropäische Normalzeit)'
-      )
-    );
-  }
+  ) {}
 
   ngOnInit(): void {}
 
@@ -74,7 +66,6 @@ export class DialogAddUserComponent implements OnInit {
 
     this.createFirestoreUser();
     this.closeDialog();
-    console.log(this.user);
     this.loading = false;
   }
 
