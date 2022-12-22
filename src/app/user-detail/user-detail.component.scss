@@ -51,7 +51,6 @@ mat-card {
   img {
     border: 2px solid $grey;
     border-radius: 50%;
-    box-shadow: 2px 2px 4px 1px $white;
     margin-right: $spacing-M;
   }
 }
@@ -77,14 +76,14 @@ mat-card {
   mat-card-content {
     display: flex;
     align-items: center;
+    mat-icon {
+      margin: $spacing-S;
+    }
     table {
       tr {
         display: flex;
         align-items: center;
       }
     }
-  }
-  mat-icon {
-    margin: $spacing-S;
   }
 }

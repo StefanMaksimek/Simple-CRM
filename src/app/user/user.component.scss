@@ -3,10 +3,22 @@
 mat-card {
   padding: 0;
 }
-
+.table-header {
+  &:hover {
+    background-color: unset !important;
+    cursor: unset !important;
+  }
+}
 table {
   width: 100%;
   border-collapse: collapse;
+  thead {
+    background-color: red;
+    &:hover {
+      background-color: unset;
+      cursor: unset;
+    }
+  }
   th,
   td {
     &:first-child {
@@ -34,10 +46,6 @@ table {
     }
     &:first-child {
       height: $spacing-L;
-      &:hover {
-        background-color: unset;
-        cursor: unset;
-      }
     }
   }
 }

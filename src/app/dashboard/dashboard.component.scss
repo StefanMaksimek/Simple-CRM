@@ -1,0 +1,48 @@
+@import "../../assets/variables.scss";
+
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  app-widget {
+    width: 100%;
+  }
+}
+
+.mid {
+  display: flex;
+  justify-content: space-evenly;
+  .month {
+    width: calc(100% / 3 * 2);
+  }
+  .cat {
+    width: calc(100% / 3);
+  }
+  mat-card {
+    background-color: unset;
+    box-shadow: none;
+  }
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-evenly;
+  mat-card {
+    width: 50%;
+
+    background-color: unset;
+    box-shadow: none;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .bottom,
+  .mid {
+    flex-direction: column;
+    mat-card,
+    .cat,
+    .month {
+      width: 100%;
+    }
+  }
+}

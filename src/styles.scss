@@ -42,13 +42,18 @@ $simple-CRM-theme: mat.define-dark-theme(
 /* You can add global styles to this file, and also import other style files */
 @import "../src/assets/fonts/font.css";
 @import "../src/assets/variables.scss";
+@import "../src/assets/highcharts-theme.scss";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html,
 body {
   height: 100%;
 }
 body {
-  margin: 0;
   font-family: "Josefin Sans", "Helvetica Neue", sans-serif;
 }
 

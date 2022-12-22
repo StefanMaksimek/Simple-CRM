@@ -28,7 +28,7 @@ export class User {
     this.hobby = obj ? obj.hobby : '';
     this.employment = obj ? obj.employment : '';
     this.favColor = obj ? obj.favColor : '';
-    this.profilePic = obj ? obj.profilePic : '';
+    this.profilePic = obj ? obj.profilePic : 'character1';
   }
 
   toJson() {

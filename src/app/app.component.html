@@ -8,18 +8,43 @@
   </mat-toolbar>
 
   <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <img src="../assets/img/logo.png" alt="" />
+      <span>Simple CRM</span>
+    </div>
 
-    <div class="links">
-      <ul>
-        <li routerLink="user"><mat-icon>person</mat-icon>User</li>
-        <li routerLink="dashboard"><mat-icon>dashboard</mat-icon>Dashboard</li>
-        <li routerLink="createuser">
-          <mat-icon>person_add</mat-icon>Create random User
-        </li>
-        <li routerLink="user"><mat-icon>add</mat-icon>Placeholder</li>
-        <li routerLink="user"><mat-icon>add</mat-icon>Placeholder</li>
-      </ul>
+    <div class="nav-items">
+      <div class="nav-item" routerLink="dashboard">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </div>
+
+      <div class="nav-item" routerLink="user">
+        <mat-icon>person</mat-icon>
+        <span>User</span>
+      </div>
+
+      <div class="nav-item" routerLink="createuser">
+        <mat-icon>person_add</mat-icon>
+        <span>Create random User</span>
+      </div>
+
+      <hr />
+
+      <div class="nav-item" routerLink="user">
+        <mat-icon>settings_suggest</mat-icon>
+        <span>Settings</span>
+      </div>
+
+      <div class="nav-item" routerLink="user">
+        <mat-icon>help_outline</mat-icon>
+        <span>Help</span>
+      </div>
+
+      <div class="nav-item" routerLink="user">
+        <mat-icon>info_outline</mat-icon>
+        <span>Legal</span>
+      </div>
     </div>
   </mat-drawer>
 

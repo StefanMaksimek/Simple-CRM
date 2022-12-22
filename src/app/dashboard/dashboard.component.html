@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+<div class="top">
+  <app-widget></app-widget>
+</div>
+
+<div class="mid">
+  <mat-card class="month">
+    <app-sales-by-month></app-sales-by-month>
+  </mat-card>
+
+  <mat-card class="cat">
+    <app-sales-by-category></app-sales-by-category>
+  </mat-card>
+</div>
+
+<div class="bottom">
+  <mat-card>
+    <app-last-few-transactions></app-last-few-transactions>
+  </mat-card>
+
+  <mat-card>
+    <app-top-products></app-top-products>
+  </mat-card>
+</div>

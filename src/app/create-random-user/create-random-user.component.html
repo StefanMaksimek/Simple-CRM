@@ -4,12 +4,9 @@
   </button>
 
   <button mat-flat-button color="primary" (click)="createFirestoreUser()">
-    Push to Firebase
+    Push to database
   </button>
 </div>
-
-<h2>{{ "Gender: " + user.gender }}</h2>
-<h1 *ngIf="generated">{{ user.userID }}</h1>
 
 <mat-card *ngIf="generated">
   <div class="header-img">

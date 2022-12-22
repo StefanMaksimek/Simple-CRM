@@ -1,0 +1,75 @@
+@import "../../../assets/variables.scss";
+
+.transactions {
+  background-color: #2a2a2b;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .transaction-wrapper {
+    overflow: auto;
+  }
+  .title {
+    padding: 5px 20px;
+    text-align: center;
+    color: $white;
+    font-size: 18px;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica,
+      sans-serif;
+  }
+  .transaction {
+    display: flex;
+    align-items: center;
+    padding: $spacing-XS $spacing-M;
+    border-bottom: 1px solid $white;
+    .image {
+      width: $spacing-L;
+      img {
+        width: $spacing-L;
+        height: $spacing-L;
+        object-fit: cover;
+        border-radius: 0.2rem;
+      }
+    }
+    div {
+      flex: 1;
+    }
+    .title {
+      padding: 10px;
+      font-size: 16px;
+    }
+    .price {
+      padding: 10px;
+      font-size: 16px;
+      width: 90px;
+    }
+    .shop-location {
+      padding: 10px;
+      font-size: 16px;
+      width: 190px;
+      .location {
+        margin-top: 4px;
+        font-size: 14px;
+        color: $white-tr;
+      }
+    }
+    .status {
+      padding: 10px;
+      font-size: 15px;
+      text-transform: uppercase;
+
+      &.confirmed {
+        color: hsl(260, 96%, 70%);
+        font-style: italic;
+      }
+      &.pending {
+        color: hsl(0, 92%, 70%);
+        font-weight: bold;
+      }
+      &.shipped {
+        color: hsl(179, 89%, 70%);
+        text-decoration: underline;
+      }
+    }
+  }
+}

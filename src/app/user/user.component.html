@@ -1,29 +1,60 @@
 <mat-card>
-  <table>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Birthdate</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Adress</th>
-    </tr>
+  <table mat-table [dataSource]="users" matSort>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let users">
+        {{ users.firstName }} {{ users.lastName }}
+      </td>
+    </ng-container>
+    <!-- Birthdate Column -->
+    <ng-container matColumnDef="birthdate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Birthdate</th>
+      <td mat-cell *matCellDef="let users">{{ users.birthdate }}</td>
+    </ng-container>
+    <!-- E-Mail Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>E-Mail</th>
+      <td mat-cell *matCellDef="let users">{{ users.email }}</td>
+    </ng-container>
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+      <td mat-cell *matCellDef="let users">{{ users.phone }}</td>
+    </ng-container>
+    <!-- Address Column -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+      <td mat-cell *matCellDef="let users">
+        {{ users.street }}
+        <br />
+        {{ users.zipCode }} {{ users.city }}
+      </td>
+    </ng-container>
+    <!-- Employment Column -->
+    <ng-container matColumnDef="employment">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Employment</th>
+      <td mat-cell *matCellDef="let users">{{ users.employment }}</td>
+    </ng-container>
 
     <tr
-      *ngFor="let user of users; let i = index"
-      [routerLink]="['/user/' + user.userID]"
-    >
-      <td>{{ i + 1 }}</td>
-      <td>{{ user.firstName }} {{ user.lastName }}</td>
-      <td>{{ user.birthdate }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.phone }}</td>
-      <td>
-        {{ user.street }} <br />
-        {{ user.zipCode }} {{ user.city }}
-      </td>
-    </tr>
+      class="table-header"
+      mat-header-row
+      *matHeaderRowDef="displayedColumns"
+    ></tr>
+    <tr
+      [routerLink]="['/user/' + row.userID]"
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
   </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of users"
+  >
+  </mat-paginator>
 </mat-card>
 
 <button
