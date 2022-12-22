@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card (window:resize)="onResize($event)">
   <table mat-table [dataSource]="users" matSort>
     <!-- Name Column -->
     <ng-container matColumnDef="name">

@@ -16,7 +16,7 @@ export class UserComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = [
+  fullCollums: string[] = [
     'name',
     'birthdate',
     'email',
@@ -24,9 +24,14 @@ export class UserComponent implements OnInit, AfterViewInit {
     'address',
     'employment',
   ];
+  responsiveCollums: string[] = ['name', 'email', 'phone', 'employment'];
+  responsivePhoneCollums: string[] = ['name', 'employment'];
+
+  displayedColumns: any = this.fullCollums;
   users: any;
 
   ngOnInit(): void {
+    this.setMatDrawer(window.innerWidth);
     this.getUsers();
     this.paginator._intl.itemsPerPageLabel = 'Users pro Seite';
   }
@@ -47,5 +52,22 @@ export class UserComponent implements OnInit, AfterViewInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddUserComponent, {});
+  }
+
+  onResize(event: any) {
+    this.setMatDrawer(event.target.innerWidth);
+  }
+
+  setMatDrawer(windowInnerWidth: number) {
+    console.log(windowInnerWidth);
+
+    if (windowInnerWidth < 1200) {
+      this.displayedColumns = this.responsiveCollums;
+      if (windowInnerWidth < 650) {
+        this.displayedColumns = this.responsivePhoneCollums;
+      }
+    } else {
+      this.displayedColumns = this.fullCollums;
+    }
   }
 }

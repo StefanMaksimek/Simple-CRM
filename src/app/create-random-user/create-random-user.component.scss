@@ -1,8 +1,11 @@
 @import "../../assets/variables.scss";
 
 .btn {
+  display: flex;
+  justify-content: space-around;
   button {
     margin: $spacing-M;
+    width: 150px;
   }
 }
 
@@ -56,7 +59,6 @@ mat-card {
   }
   img {
     border-radius: 50%;
-
     margin-right: $spacing-M;
   }
 }
@@ -67,6 +69,7 @@ mat-card {
 }
 
 .card {
+  flex: 1;
   position: relative;
   width: fit-content;
   min-width: 200px;
@@ -91,5 +94,32 @@ mat-card {
   }
   mat-icon {
     margin: $spacing-S;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .btn {
+    flex-direction: column;
+    align-items: center;
+  }
+  .user-header {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    .user-header-text {
+      height: unset;
+      min-height: unset;
+    }
+
+    img {
+      margin-right: 0;
+    }
+  }
+  .info {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    .card {
+      width: 100%;
+    }
   }
 }
